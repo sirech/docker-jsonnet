@@ -1,0 +1,18 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/buildpack-deps:stretch
+
+    steps:
+      - run:
+          name: Setup variables
+          command: |
+            echo 'export IMAGE_NAME=$DOCKER_USER/docker-jsonnet' >> $BASH_ENV
+
+      - checkout
+      - setup_remote_docker
+      - run: ./go build
+      - run: ./go test
+      - run: echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+      - run: ./go publish
