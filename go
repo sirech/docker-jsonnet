@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export IMAGE_NAME=${IMAGE_NAME:-'docker-jsonnet'}
-export VERSION=0.15.0
+export VERSION=0.16.0
 
 goal_build() {
   docker build . -t "${IMAGE_NAME}"

@@ -1,7 +1,7 @@
 FROM debian:buster-slim
 
-ENV JSONNET_VERSION=0.15.0 \
-    JSONNET_SHA1=065d517379fa4d1137d8ce7993afcc8f986bdac2
+ENV JSONNET_VERSION=0.16.0 \
+    JSONNET_SHA1=2791229ccd3a0f867a04223b533cb0157d72aa14
 
 RUN apt-get update && \
     apt-get -y install --no-install-recommends curl git bash && \
